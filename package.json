@@ -6,7 +6,9 @@
   "scripts": {
     "build": "babel src -d lib",
     "test": "npm run build && mocha --compilers js:espower-babel/guess",
-    "watch-test": "onchange 'test/**/*.js' 'src/**/*.js' -- npm test"
+    "lint": "eslint src test",
+    "watch-test": "onchange 'test/**/*.js' 'src/**/*.js' -- npm test",
+    "watch-lint": "onchange '.eslintrc' 'test/**/*.js' 'src/**/*.js' -- npm run lint"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
   "homepage": "https://github.com/pirosikick/gulp-comment2md",
   "devDependencies": {
     "babel": "^4.7.16",
+    "babel-eslint": "^2.0.2",
+    "eslint": "^0.17.1",
     "espower-babel": "^1.4.0",
     "gulp": "^3.8.11",
     "mocha": "^2.2.1",
