@@ -1,44 +1,55 @@
 {
   "name": "gulp-comment2md",
-  "version": "1.0.0",
   "description": "Generates markdown files from JavaScript comments",
-  "main": "index.js",
-  "scripts": {
-    "build": "babel src -d lib",
-    "test": "npm run build && mocha --compilers js:espower-babel/guess",
-    "lint": "eslint src test",
-    "watch": "npm run watch-test & npm run watch-lint",
-    "watch-test": "onchange 'test/**/*.js' 'src/**/*.js' -- npm test",
-    "watch-lint": "onchange '.eslintrc' 'test/**/*.js' 'src/**/*.js' -- npm run lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pirosikick/gulp-comment2md"
-  },
-  "keywords": [
-    "gulp",
-    "markdown"
-  ],
+  "version": "1.0.0",
   "author": "Hiroyuki ANAI <pirosikick@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pirosikick/gulp-comment2md/issues"
   },
-  "homepage": "https://github.com/pirosikick/gulp-comment2md",
+  "dependencies": {
+    "gulp-util": "^3.0.4",
+    "lodash": "^3.5.0",
+    "through2": "^0.6.3"
+  },
   "devDependencies": {
     "babel": "^4.7.16",
     "babel-eslint": "^2.0.2",
     "eslint": "^0.17.1",
     "espower-babel": "^1.4.0",
+    "fixpack": "^2.2.0",
     "gulp": "^3.8.11",
     "mocha": "^2.2.1",
     "onchange": "^1.0.0",
     "power-assert": "^0.10.2",
     "stream-assert": "^2.0.2"
   },
-  "dependencies": {
-    "gulp-util": "^3.0.4",
-    "lodash": "^3.5.0",
-    "through2": "^0.6.3"
+  "files": [
+    "index.js",
+    "lib",
+    "LICENSE",
+    "package.json"
+  ],
+  "homepage": "https://github.com/pirosikick/gulp-comment2md",
+  "keywords": [
+    "gulp",
+    "markdown"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "http://pirosikick.mit-license.org/"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pirosikick/gulp-comment2md"
+  },
+  "scripts": {
+    "build": "babel src -d lib",
+    "fixpack": "fixpack",
+    "lint": "eslint src test",
+    "test": "npm run build && mocha --compilers js:espower-babel/guess",
+    "watch": "npm run watch-test & npm run watch-lint",
+    "watch-lint": "onchange '.eslintrc' 'test/**/*.js' 'src/**/*.js' -- npm run lint",
+    "watch-test": "onchange 'test/**/*.js' 'src/**/*.js' -- npm test"
   }
 }
