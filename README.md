@@ -1,7 +1,14 @@
 # gulp-comment2md
+
 Generates markdown files from JavaScript comments
 
-## Usage
+## Install
+
+```sh
+$ npm install gulp-comment2md --save-dev
+```
+
+## Example
 
 ```javascript
 var gulp = require('gulp');
@@ -13,3 +20,7 @@ gulp.task('markdown', function () {
     .pipe(gulp.dest('./doc'));
 });
 ```
+
+## License
+
+MIT
