@@ -6,7 +6,12 @@ import _ from "lodash";
 import through2 from "through2";
 import { File, PluginError } from "gulp-util";
 
-export default function (options) {
+/**
+ * comment2md
+ *
+ * @param filename {String|Function}
+ */
+export default function (filename = false) {
   return through2.obj(function (file, encode, callback) {
     if (file.isStream()) {
       this.emit("error", error("Streaming not supported"));
@@ -18,7 +23,7 @@ export default function (options) {
       , markdownText = comment2md(contents);
 
     if (markdownText) {
-      markdown.path = changeExtname(markdown.path);
+      markdown.path = getPath(markdown, filename);
       markdown.contents = new Buffer(markdownText);
       this.push(markdown);
     }
@@ -29,6 +34,18 @@ export default function (options) {
 
 function error(message) {
   return new PluginError("gulp-comment2md", message);
+}
+
+function getPath(file, filename) {
+  let dirname = path.dirname(file.path);
+
+  if (typeof filename === "string") {
+    return path.join(dirname, filename);
+  } else if (typeof filename === "function") {
+    return path.join(dirname, filename(file));
+  }
+
+  return changeExtname(file.path);
 }
 
 function changeExtname(filepath, newExt = ".md") {
