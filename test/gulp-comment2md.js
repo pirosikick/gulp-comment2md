@@ -17,15 +17,30 @@ describe("gulp-comment2md", function () {
 
     let expected = {
       "first.js": [
-                      "Title"
-                    , "====="
-                    , ""
-                    , "Write description about this markdown"
-                    , ""
-                  ].join("\n")
+          "Title"
+        , "====="
+        , ""
+        , "Write description about this markdown"
+        , ""
+      ].join("\n"),
+      "second.js": [
+          "# First Block"
+        , ""
+        , "- one"
+        , "- two"
+        , "- three"
+        , ""
+        , "# Second Block"
+        , ""
+        , "- one"
+        , "- two"
+        , "- three"
+      ].join("\n")
     };
 
-    it("should generate markdown from comments", function (done) {
+    expected.third = expected["first.js"];
+
+    it("should generate markdown from comment", function (done) {
       let filename = "first.js";
 
       gulp.src(fixture(filename))
@@ -80,5 +95,40 @@ describe("gulp-comment2md", function () {
       });
 
     });
+
+    describe("when file has multiple comment blocks", function () {
+
+      it("should generage markdown from comments", function (done) {
+        let filename = "second.js";
+
+        gulp.src(fixture(filename))
+          .pipe(comment2md())
+          .pipe(streamAssert.length(1))
+          .pipe(streamAssert.second((file) => {
+            assert(file.contents.toString() === expected[filename]);
+            assert(path.basename(file.path) === "second.md");
+          }))
+          .pipe(streamAssert.end(done));
+      });
+
+    });
+
+    describe("when file has no extention", function () {
+
+      it("should add default extention to markdown file", function (done) {
+        let filename = "third";
+
+        gulp.src(fixture(filename))
+          .pipe(comment2md())
+          .pipe(streamAssert.length(1))
+          .pipe(streamAssert.second((file) => {
+            assert(file.contents.toString() === expected[filename]);
+            assert(path.basename(file.path) === filename + ".md");
+          }))
+          .pipe(streamAssert.end(done));
+      });
+    });
+
+
   });
 });
