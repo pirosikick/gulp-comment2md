@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/gulp-comment2md.svg)](http://badge.fury.io/js/gulp-comment2md)
+[![david](https://david-dm.org/pirosikick/gulp-comment2md.svg)](https://david-dm.org/pirosikick/gulp-comment2md)
+
 # gulp-comment2md
 
 gulp-commnet2md is a gulp plugin that generates markdown file from JavaScript comments.
