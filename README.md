@@ -1,5 +1,6 @@
 [![npm version](https://badge.fury.io/js/gulp-comment2md.svg)](http://badge.fury.io/js/gulp-comment2md)
 [![david](https://david-dm.org/pirosikick/gulp-comment2md.svg)](https://david-dm.org/pirosikick/gulp-comment2md)
+[![Build Status](https://travis-ci.org/pirosikick/gulp-comment2md.svg)](https://travis-ci.org/pirosikick/gulp-comment2md)
 
 # gulp-comment2md
 
