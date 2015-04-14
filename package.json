@@ -1,7 +1,7 @@
 {
   "name": "gulp-comment2md",
   "description": "Generates markdown files from JavaScript comments",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Hiroyuki ANAI <pirosikick@gmail.com>",
   "bugs": {
     "url": "https://github.com/pirosikick/gulp-comment2md/issues"
