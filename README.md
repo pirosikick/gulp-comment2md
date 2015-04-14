@@ -14,6 +14,7 @@ $ npm install gulp-comment2md --save-dev
 
 ## Example
 
+gulp-comment2md generates markdown file from block comments which start with `/**md` or `/*markdown`:
 ```javascript
 // src/hello.js
 
@@ -31,6 +32,8 @@ function hello() {
 ```
 
 ```javascript
+// gulpfile.js
+
 var gulp = require('gulp');
 var comment2md = require('gulp-comment2md');
 
@@ -40,6 +43,8 @@ gulp.task('markdown', function () {
     .pipe(gulp.dest('./doc')); // This task will generate `doc/hello.md`
 });
 ```
+
+### Rename output file
 
 If you want to rename output markdown files, you can pass String or Function as
 comment2md argument:
@@ -67,4 +72,5 @@ gulp.task('markdown', function () {
 ## License
 
 MIT
+
 
