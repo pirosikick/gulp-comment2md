@@ -1,7 +1,7 @@
 {
   "name": "gulp-comment2md",
   "description": "Generates markdown files from JavaScript comments",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Hiroyuki ANAI <pirosikick@gmail.com>",
   "bugs": {
     "url": "https://github.com/pirosikick/gulp-comment2md/issues"
@@ -12,15 +12,15 @@
     "through2": "^0.6.3"
   },
   "devDependencies": {
-    "babel": "^4.7.16",
-    "babel-eslint": "^2.0.2",
+    "babel": "^5.6.14",
+    "babel-eslint": "^3.1.23",
     "eslint": "^0.17.1",
-    "espower-babel": "^1.4.0",
+    "espower-babel": "^3.2.0",
     "fixpack": "^2.2.0",
     "gulp": "^3.8.11",
     "mocha": "^2.2.1",
     "onchange": "^1.0.0",
-    "power-assert": "^0.10.2",
+    "power-assert": "^0.11.0",
     "stream-assert": "^2.0.2"
   },
   "files": [
